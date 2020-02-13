@@ -5,17 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com</groupId>
-    <artifactId>employees</artifactId>
+    <artifactId>gendaszewski</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Maven Webapp</name>
-    <url>http://www.example.com</url>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.11</maven.compiler.source>
-        <maven.compiler.target>1.11</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -28,45 +25,25 @@
     </dependencies>
 
     <build>
-        <finalName>Employees</finalName>
-        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+        <pluginManagement>
+            <!-- mvn tomcat7:run -->
             <plugins>
-                <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.1.0</version>
-                </plugin>
-                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
-                <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.22.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>3.2.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>2.5.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.8.2</version>
-                </plugin>
                 <plugin>
                     <groupId>org.apache.tomcat.maven</groupId>
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>2.2</version>
                     <configuration>
-                        <port>8888</port>
-                        <path>/</path>
+                        <port>8080</port>
+                        <path>/CrudEmployees</path>
+                    </configuration>
+                </plugin>
+                <!-- allows deleted the web.xml file -->
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.1.1</version>
+                    <extensions>false</extensions>
+                    <configuration>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
                     </configuration>
                 </plugin>
             </plugins>
